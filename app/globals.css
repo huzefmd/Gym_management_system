@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 14% 7%;
+    --foreground: 40 40% 96%;
+    --card: 20 16% 10%;
+    --card-foreground: 40 40% 96%;
+    --popover: 20 16% 9%;
+    --popover-foreground: 40 40% 96%;
+    --primary: 18 89% 55%;
+    --primary-foreground: 20 14% 7%;
+    --secondary: 20 16% 14%;
+    --secondary-foreground: 40 40% 96%;
+    --muted: 20 14% 14%;
+    --muted-foreground: 30 10% 65%;
+    --accent: 33 90% 60%;
+    --accent-foreground: 20 14% 7%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 14% 18%;
+    --input: 20 14% 18%;
+    --ring: 18 89% 55%;
+    --chart-1: 18 89% 55%;
+    --chart-2: 33 90% 60%;
+    --chart-3: 142 60% 50%;
+    --chart-4: 200 80% 60%;
+    --chart-5: 0 72% 60%;
+    --radius: 0.6rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-[#ee5a2a] to-[#f5a442] bg-clip-text text-transparent;
+  }
+  .bg-gradient-brand {
+    background-image: linear-gradient(135deg, #ee5a2a 0%, #f5a442 100%);
+  }
+  .bg-gradient-brand-soft {
+    background-image: linear-gradient(135deg, rgba(238, 90, 42, 0.12) 0%, rgba(245, 164, 66, 0.12) 100%);
+  }
+  .border-gradient-brand {
+    border-image: linear-gradient(135deg, #ee5a2a, #f5a442) 1;
+  }
+  .glass-card {
+    background: hsl(20 16% 10% / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(20 14% 18% / 0.8);
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(20 14% 22%);
+    border-radius: 999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out both;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
